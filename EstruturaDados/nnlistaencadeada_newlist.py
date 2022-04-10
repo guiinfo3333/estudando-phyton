@@ -1,5 +1,5 @@
+from EstruturaDados.nnlistaencadeada import Node
 from abc import ABC, abstractmethod
-
 
 class ListADT(ABC):
 
@@ -54,20 +54,7 @@ class ListADT(ABC):
         pass
 
 
-class Node(object):
-
-    def __init__(self, element=None, next_element=None):
-        self._element = element
-        self._next = next_element
-
-    def __str__(self):
-        if not self._next:
-            return '|' + self._element.__str__() + '|'
-        else:
-            return '|' + self._element.__str__()
-
-
-class LinkedList(ListADT):
+class LinkedListMylist(ListADT):
 
     def __init__(self, elem=None):
         if elem:
@@ -80,16 +67,18 @@ class LinkedList(ListADT):
             self._length = 0
 
     def insert(self, index, elem):
-        # a inserÃ§Ã£o pode acontecer em trÃªs locais: inÃ­cio, meio e fim da lista
-        # separei em mÃ©todos diferentes (privados) para facilitar o entendimento e a legibilidade
-        n = Node(elem)  # nÃ³ a ser inserido na lista
-        if index == 0:  # primeiro local de inserÃ§Ã£o Ã© no comeÃ§o da lista
-            self.__insert_at_beginning(n)
-        elif index >= self._length: # segundo local de inserÃ§Ãµa Ã© no fim da lista
-            self.__insert_at_end(n)  # se o Ã­ndice passado foi maior que o tamanho da lista, insiro no fim
-        else:  # por fim, a inserÃ§Ã£o no meio da lista
-           self.__insert_in_between(index, n)
-        self._length += 1  # apÃ³s inserido, o tamanho da lista Ã© modificado
+        n = Node(elem)
+        if (self.verificaSeElementoJaExiste(elem)):
+            if index == 0:
+                self.__insert_at_beginning(n)
+            elif index >= self._length:  # segundo local de inserÃ§Ãµa Ã© no fim da lista
+                self.__insert_at_end(n)  # se o Ã­ndice passado foi maior que o tamanho da lista, insiro no fim
+            else:  # por fim, a inserÃ§Ã£o no meio da lista
+                self.__insert_in_between(index, n)
+            self._length += 1  # apÃ³s inserido, o tamanho da lista Ã© modificado
+        else:
+            raise NameError("O elemento já existe na lista!")
+
 
     def append(self, elem):
         n = Node(elem)
@@ -219,6 +208,17 @@ class LinkedList(ListADT):
             pos += 1
         return result
 
+    def verificaSeElementoJaExiste(self, element):
+        pos = 0
+        aux = self._head
+        # Vamos percorrer a lista em busca de elem
+        while pos < self._length:
+            if element is aux._element:
+                return True
+            aux = aux._next
+            pos += 1
+        return False
+
     def length(self):
         return self._length
 
@@ -242,7 +242,7 @@ class LinkedList(ListADT):
 
 
 if __name__ == '__main__':
-    ll = LinkedList()
+    ll = LinkedListMylist()
     ll.insert(0, 0)
     ll.insert(1, 1)
     ll.insert(1, 2)
@@ -251,6 +251,7 @@ if __name__ == '__main__':
     ll.insert(0, 4)
     ll.insert(3, 4)
     ll.insert(4, 4)
+    ll.insert(5, 4)
     ll.append(20000)
     ll.append(101010101)
     print(ll)
