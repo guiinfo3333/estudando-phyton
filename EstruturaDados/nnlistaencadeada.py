@@ -14,6 +14,11 @@ class ListADT(ABC):
         pass
 
     @abstractmethod
+    def append(self, elemento):
+        """Insere um elemento na última posicao"""
+        pass
+
+    @abstractmethod
     def count(self, elemento):
         """Conta a quantidade de <elemento> na lista"""
         pass
@@ -26,6 +31,11 @@ class ListADT(ABC):
     @abstractmethod
     def removeAll(self, elemento):
         """Apaga todas as ocorrencias daquele elemento na lista"""
+        pass
+
+    @abstractmethod
+    def replace(self, indice, elemento):
+        """substitui na posição <index> o valor existente com <elemento>."""
         pass
 
     @abstractmethod
@@ -81,6 +91,10 @@ class LinkedList(ListADT):
            self.__insert_in_between(index, n)
         self._length += 1  # apÃ³s inserido, o tamanho da lista Ã© modificado
 
+    def append(self, elem):
+        n = Node(elem)
+        self.__insert_at_end(n)
+
     def __insert_at_beginning(self, n):
         if self.empty():  # caso particular da lista vazia
             self.__empty_list_insertion(n)
@@ -131,6 +145,9 @@ class LinkedList(ListADT):
         else:
             raise NameError("index não existe na lista")
 
+    def replace(self, indice, elemento):
+        result = self.replaceChange(indice, elemento)
+
 
     def removeAll(self, elem):
         if not self.empty():  # SÃ³ pode remover se a lista nÃ£o estiver vazia, nÃ£o Ã©?!
@@ -178,6 +195,17 @@ class LinkedList(ListADT):
             pos += 1
         return result  # se o elemento nÃ£o estiver na lista, retorna None
 
+    def replaceChange(self, index, elementonovo):
+        result = None
+        pos = 0
+        aux = self._head
+
+        while not result and pos < self._length:
+            if pos is index:
+                aux._element = elementonovo
+            aux = aux._next
+            pos += 1
+
     def element(self, index):
         result = None
         pos = 0
@@ -223,7 +251,9 @@ if __name__ == '__main__':
     ll.insert(0, 4)
     ll.insert(3, 4)
     ll.insert(4, 4)
+    ll.append(20000)
+    ll.append(101010101)
     print(ll)
-    ll.removeAt(1000)
+    ll.replace(7,10000)  resolver problema que so vai ate o 7
     print(ll)
     print(len(ll))
