@@ -68,7 +68,7 @@ class LinkedListMylist(ListADT):
 
     def insert(self, index, elem):
         n = Node(elem)
-        if (self.verificaSeElementoJaExiste(elem)):
+        if (not self.verificaSeElementoJaExiste(elem)):
             if index == 0:
                 self.__insert_at_beginning(n)
             elif index >= self._length:  # segundo local de inserÃ§Ãµa Ã© no fim da lista
@@ -247,7 +247,7 @@ if __name__ == '__main__':
     ll.insert(1, 1)
     ll.insert(1, 2)
     ll.insert(2, 3)
-    ll.insert(20, 3)
+    ll.insert(20, 90)
     ll.insert(0, 4)
     ll.insert(3, 4)
     ll.insert(4, 4)
