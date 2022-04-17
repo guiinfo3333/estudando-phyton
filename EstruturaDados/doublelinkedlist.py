@@ -9,6 +9,11 @@ class ListADT(ABC):
         pass
 
     @abstractmethod
+    def append(self, elemento):
+        """Insere um elemento na última posicao"""
+        pass
+
+    @abstractmethod
     def remove(self, elemento):
         """Remove primeira ocorrÃªncia de <elemento>"""
         pass
@@ -41,6 +46,16 @@ class ListADT(ABC):
     @abstractmethod
     def removeAll(self, elemento):
         """Apaga todas as ocorrencias daquele elemento na lista"""
+        pass
+
+    @abstractmethod
+    def replace(self, indice, elemento):
+        """substitui na posição <index> o valor existente com <elemento>."""
+        pass
+
+    @abstractmethod
+    def removeAt(self, index):
+        """Remove o elemento que se encontra na posicao <index> da lista"""
         pass
 
 
@@ -264,14 +279,40 @@ class DoublyLinkedList(ListADT):
 
         self._length += 1
 
+
+    def append(self, elemento):
+        self.insert(self._length + 1, elemento)
+        pass
+
     def remove(self, elemento):
         pass
+
+    def removeAt(self, index):
+        if (self._length == 0):
+            raise NameError("A lista está vazia !")
+            return
+        result = None  # armazena a primeira posiÃ§Ã£o do elemento
+        pos = 0
+        aux = self._header._next
+        successor = aux._next
+        # Vamos percorrer a lista em busca de elem
+        while not result and pos < self._length:  # lembrando que not None Ã© o mesmo que True
+            if pos == index:
+                aux._prev._next = successor
+                successor._prev = aux._prev
+                self._length -= 1
+                return
+            aux = aux._next
+            successor = aux._next
+            pos += 1
+        raise NameError("index não encontrado !")
 
     def removeAll(self, elemento):
         this = self._header._next
         successor = this._next
         tamanho = ((self._length+1) - 1)
         pos = 0
+        index = 0
 
         while pos < tamanho:  # caminhando dentro da lista encadeada
             if this._elem == elemento:
@@ -281,6 +322,8 @@ class DoublyLinkedList(ListADT):
             pos += 1
             this = successor
             successor = this._next
+            index += 1
+        print(index)
 
 
     def count(self, elem):
@@ -292,6 +335,25 @@ class DoublyLinkedList(ListADT):
                     result += 1
                 this = this._next
         return result
+
+    def replace(self, indice, elemento):
+        if (self._length == 0):
+            raise NameError("A lista está vazia !")
+            return
+        result = None  # armazena a primeira posiÃ§Ã£o do elemento
+        pos = 0
+        aux = self._header._next
+        successor = aux._next
+        # Vamos percorrer a lista em busca de elem
+        while not result and pos < self._length:  # lembrando que not None Ã© o mesmo que True
+            if pos == indice:
+                aux._prev._elem = elemento
+                successor._prev._elem = elemento
+                return
+            aux = aux._next
+            successor = aux._next
+            pos += 1
+        raise NameError("index não encontrado !")
 
     def clear(self):
         self._header = self._DoublyNode(None, None, None)
@@ -346,20 +408,22 @@ if __name__ == '__main__':
 
     lista = DoublyLinkedList()
     lista.insert(0, 0)
-    print(lista)
     lista.insert(1, 1)
-    print(lista)
     lista.insert(2, 2)
-    print(lista)
     lista.insert(0, 3)
     lista.insert(0, 3)
-    print(lista)
     lista.insert(1000, 4)
-    print(lista)
     lista.insert(3, 5)
     lista.insert(20, 3)
-    print(lista)
     lista.removeAll(3)
+    print("lista ae ", lista)
+    lista.removeAt(0)
+    print(lista)
+    lista.append("alo meu Deus")
+    print(lista)
+    lista.append(2)
+    print(lista)
+    lista.replace(5, 1)
     print(lista)
     # print(lista.index(1))
     # print(lista.count(1))
