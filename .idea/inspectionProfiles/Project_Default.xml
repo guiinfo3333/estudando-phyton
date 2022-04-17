@@ -6,6 +6,7 @@
         <list>
           <option value="EstruturaDados.nnlistaencadeada_newlist.ListADT" />
           <option value="EstruturaDados.ListADT" />
+          <option value="EstruturaDados.mylistdoubledlinked.ListADT" />
         </list>
       </option>
     </inspection_tool>

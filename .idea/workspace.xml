@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bf88b24-b4c4-484a-9c56-48c313f852d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EstruturaDados/doublelinkedlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/EstruturaDados/doublelinkedlist.py" afterDir="false" />
+    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EstruturaDados/mylistdoubledlinked.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +17,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="27vpcTFgIb7WBGrj5azwz7xz8iw" />
+  <component name="ProjectId" id="27vy2mXFdaDyBujUbQ1YtUqEwdQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,10 +26,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/EstruturaDados/doublelinkedlist.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/EstruturaDados/mylistdoubledlinked.py" />
   </component>
   <component name="RunManager">
-    <configuration name="doublelinkedlist" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="mylistdoubledlinked" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="estudoguiphyton" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -41,7 +42,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EstruturaDados/doublelinkedlist.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EstruturaDados/mylistdoubledlinked.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -54,12 +55,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0bf88b24-b4c4-484a-9c56-48c313f852d5" name="Changes" comment="" />
-      <created>1650210495662</created>
+      <changelist id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="" />
+      <created>1650214651513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1650210495662</updated>
-      <workItem from="1650210498105" duration="2781000" />
+      <updated>1650214651513</updated>
+      <workItem from="1650214653087" duration="482000" />
     </task>
     <servers />
   </component>
@@ -70,19 +71,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/EstruturaDados/doublelinkedlist.py</url>
-          <line>325</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/EstruturaDados/mylistdoubledlinked.py</url>
+          <line>214</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/EstruturaDados/doublelinkedlist.py</url>
-          <line>426</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/EstruturaDados/mylistdoubledlinked.py</url>
+          <line>212</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/mylistdoubledlinked.py</url>
+          <line>215</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/estudoguiphyton$estudoguiphyton.coverage" NAME="doublelinkedlist Coverage Results" MODIFIED="1650214099748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
+    <SUITE FILE_PATH="coverage/estudoguiphyton$mylistdoubledlinked.coverage" NAME="mylistdoubledlinked Coverage Results" MODIFIED="1650215129837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
   </component>
 </project>
