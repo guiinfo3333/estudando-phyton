@@ -29,7 +29,7 @@ class Stack(ABC):
         pass
 
 
-class ArrayStack(Stack):
+class RowStack(Stack):
     """ImplementaÃ§Ã£o de pilha que utiliza uma lista Python para armazenar as informaÃ§Ãµes"""
 
     def __init__(self):
@@ -56,18 +56,18 @@ class ArrayStack(Stack):
         Raise Empty exception if the stack is empty."""
         if self.is_empty():
             raise EmptyStack('Stack is empty')
-        return self._data[-1]  # the last item in the list
+        return self._data[0]  # the last item in the list
 
     def pop(self):
         """Remove and return the element from the top of the stack (i.e., LIFO).
        Raise Empty exception if the stack is empty."""
         if self.is_empty():
             raise EmptyStack('Stack is empty')
-        return self._data.pop()
+        self._data.pop(0)
 
 
 if __name__ == '__main__':
-    pilha = ArrayStack()
+    pilha = RowStack()
 
     pilha.push(5)
     pilha.push(3)
@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
     try:
         pilha.pop()
-        print(pilha.top())
+        # print(pilha.top())
         print(pilha)
         pilha.pop()
         print(pilha)
