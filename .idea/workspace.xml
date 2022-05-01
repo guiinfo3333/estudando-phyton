@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py" beforeDir="false" afterPath="$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -61,7 +62,8 @@
       <updated>1650214651513</updated>
       <workItem from="1650214653087" duration="1143000" />
       <workItem from="1650810353130" duration="1931000" />
-      <workItem from="1651350917015" duration="1210000" />
+      <workItem from="1651350917015" duration="1675000" />
+      <workItem from="1651372756759" duration="3262000" />
     </task>
     <servers />
   </component>
@@ -97,12 +99,43 @@
           <line>218</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py</url>
+          <line>87</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py</url>
+          <line>91</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py</url>
+          <line>106</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/exercicios/tokenparse.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/estudoguiphyton$pilhas.coverage" NAME="fila Coverage Results" MODIFIED="1650812163842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$mylistdoubledlinked.coverage" NAME="mylistdoubledlinked Coverage Results" MODIFIED="1650215269236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
-    <SUITE FILE_PATH="coverage/estudoguiphyton$fila.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651351627005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
+    <SUITE FILE_PATH="coverage/estudoguiphyton$fila.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651352149866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
+    <SUITE FILE_PATH="coverage/estudoguiphyton$tokenparse.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651376013138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
   </component>
 </project>

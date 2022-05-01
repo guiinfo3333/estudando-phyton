@@ -36,6 +36,12 @@ class Parser:
     __keywords = [
         "class", "Parser", ":", "def", "__init__", "(", "self", "program", ")", "_program", "="
     ]
+    __reserved_words = [
+        'False', 'class', 'from', 'or', 'None', 'continue', 'global', 'pass', 'True', 'def', 'if',
+        'raise', 'and', 'del', 'import', 'return', 'as', 'elif', 'while', 'async', 'in', 'except', ' try',
+        'assert', 'else', 'is', 'lambda', 'with', 'await',
+        'finally', 'nonlocal', 'yield', 'break', 'for', 'not'
+    ]
 
     __tokensespeciais_geral = ["(", "[", "{", ")", "]", "}"]
     __tokensespeciais_abrindo = ["(", "[", "{"]
@@ -43,6 +49,7 @@ class Parser:
 
     def __init__(self, program):
         self._program = program.split()
+        self._programatodo = []
         self._tokens_programa = program.split()
         self._tokens_especiais_do_programa = []
 
@@ -63,6 +70,10 @@ class Parser:
         lista_de_token = []
         lista_de_token_especiais = []
         for result in self._program:
+            if (result[::-1] in self.__reserved_words) or (result in self.__tokensespeciais_geral):
+                self._programatodo.append(result)
+            else:
+                raise NameError("palavra ! '" + str(result) + "' não pode ser colocada no programa")
             if result in self.__tokens:
                 lista_de_token.append(result)
             if result in self.__tokensespeciais_geral:
@@ -73,22 +84,36 @@ class Parser:
         return lista_de_token
 
     def scan(self):
-        """Este método deve percorrer todos os tokens do programa para identificar
-        se o programa está bem formado"""
-        pass
+        error = False
+        contador = 0
+        tokens_especiais = self._tokens_especiais_do_programa
+        tamanho_token_especiais = len(tokens_especiais)
 
-    def parse(self):
-        """Este método deve retornar True, se o programa estiver bem formado, False,
-        caso contrário"""
-        pass
+        if not (tamanho_token_especiais % 2 == 0):
+            raise NameError("Quantidade ímpar de tokens especiais !")
+        else:
+            while (contador < (tamanho_token_especiais / 2)):
+                if (tokens_especiais[contador] == "("):
+                    if not (tokens_especiais[(tamanho_token_especiais - 1) - contador] == ")"):
+                        error = True
+                elif (tokens_especiais[contador] == "["):
+                    if not (tokens_especiais[(tamanho_token_especiais - 1) - contador] == "]"):
+                        error = True
+                elif (tokens_especiais[contador] == "{"):
+                    if not (tokens_especiais[(tamanho_token_especiais - 1) - contador] == "}"):
+                        error = True
+                contador = contador + 1
+        if error:
+            raise NameError("Elementos não estão fechando corretamente ")
 
 
 if __name__ == '__main__':
-    string = "class class class ( ] ( ]"
+    string = "ssalc ssalc [  ( ) ]"
     parser = Parser(string)
     print(parser.tokenizer())
     print("Tokens especiais do meu programa :")
     print(list(parser.retornaTokenEspecial()))
+    parser.scan()
 
 
 # Deve imprimir True
