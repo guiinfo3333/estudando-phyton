@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EstruturaDados/sort/bouble_sort.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EstruturaDados/sort/merge_sort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/estudoguiphyton.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/estudoguiphyton.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +67,7 @@
       <workItem from="1651350917015" duration="1675000" />
       <workItem from="1651372756759" duration="3262000" />
       <workItem from="1652748627962" duration="2047000" />
+      <workItem from="1653784889353" duration="422000" />
     </task>
     <servers />
   </component>
