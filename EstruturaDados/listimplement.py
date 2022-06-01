@@ -151,7 +151,5 @@ if __name__ == '__main__':
 
     lista.insert(0, 30)
     print(lista)
-
     print(lista.index(30))
-
     print("quantidadade ", len(lista))

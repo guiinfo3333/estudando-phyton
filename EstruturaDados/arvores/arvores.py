@@ -1,115 +1,199 @@
-class NodoArvore:
-    def __init__(self, chave=None, esquerda=None, direita=None):
-        self.chave = chave
-        self.esquerda = esquerda
-        self.direita = direita
-
-    def __repr__(self):
-        return '%s <- %s -> %s' % (self.esquerda and self.esquerda.chave,
-                                    self.chave,
-                                    self.direita and self.direita.chave)
 
 
-class ArvoreBinaria:
-    def __init__(self, raiz):
-        self._raiz = raiz
+from abc import ABC, abstractmethod
+
+
+class TreeADT(ABC):
+
+    @abstractmethod
+    def insert(self, value):
+        """Método de inserção de informação na árvore"""
+        pass
+
+    @abstractmethod
+    def empty(self):
+        """Método que retorna True, caso a árvore esteja vazia, False caso contrário"""
+        pass
+
+    @abstractmethod
+    def root(self):
+        """Método que retorna o nó raiz da árvore. Se a árvore estiver vazia, None deve ser retornado"""
+        pass
+
+
+class Node:
+
+    def __init__(self, data=None, parent=None, left=None, right=None):
+        self._data = data
+        self._left = left
+        self._right = right
+
+    def empty(self):
+        return not self._data
+
+    def __str__(self):
+        return self._data.__str__()
+
+
+class BinaryTree(TreeADT):
+
+    def __init__(self, data=None):
+        self._root = Node(data)
         self._aux = 0
         self._aux1 = 0
         self._aux2 = 0
+        self._aux3 = 0
+        self._lista_em_ordem = []
+        self._lista_pre_ordem = []
+        self._lista_pos_ordem = []
 
-    def insere(self, raiz, nodo):
-        """Insere um nodo em uma árvore binária de pesquisa."""
+    def insert(self, raiz, value):
+
+        if not isinstance(value._data, int):
+            raise NameError("Permitido apenas números inteiros")
+            return
+
+        if self._aux == 0:
+            raiz = self._root
+            self._aux += 1
+
         # Nodo deve ser inserido na raiz.
-        if raiz is None:
-            self._raiz = nodo
+        if raiz._data is None:
+            self._root = value
 
-        # Nodo deve ser inserido na subárvore direita.
-        elif raiz.chave < nodo.chave:
-            if raiz.direita is None:
-                raiz.direita = nodo
+        elif raiz._data < value._data:
+            if raiz._right is None:
+                raiz._right = value
             else:
-                self.insere(raiz.direita, nodo)
+                self.insert(raiz._right, value)
 
         # Nodo deve ser inserido na subárvore esquerda.
         else:
-            if raiz.esquerda is None:
-                raiz.esquerda = nodo
+            if raiz._left is None:
+                raiz._left = value
             else:
-                self.insere(raiz.esquerda, nodo)
+                self.insert(raiz._left, value)
+        self._aux = 0
 
-    def em_ordem(self, nodo=None):
-        if (self._aux == 0):
-            nodo = self._raiz
-            self._aux += 1
+    def empty(self):
+        pass
 
-        if not nodo:
-            return
+    def root(self):
+        pass
 
-        # Visita filho da esquerda.
-        self.em_ordem(nodo.esquerda)
-
-        # Visita nodo corrente.
-        print(nodo.chave),
-
-        # Visita filho da direita.
-        self.em_ordem(nodo.direita)
-
-    def pre_ordem(self, nodo=None):
-        if (self._aux1 == 0):
-            nodo = self._raiz
+    def em_ordem(self, raiz):
+        if self._aux1 == 0:
+            raiz = self._root
             self._aux1 += 1
 
-        if not nodo:
+        if not raiz:
             return
 
-        # Visita nodo corrente.
-        print(nodo.chave)
-
         # Visita filho da esquerda.
-        self.pre_ordem(nodo.esquerda)
+        self.em_ordem(raiz._left)
+
+        # Visita nodo corrente.
+        self._lista_em_ordem.append(raiz._data)
+        # print(raiz._data),
 
         # Visita filho da direita.
-        self.pre_ordem(nodo.direita)
+        self.em_ordem(raiz._right)
 
-    def pos_ordem(self, nodo=None):
-        if (self._aux2 == 0):
-            nodo = self._raiz
+    def pre_ordem(self, raiz):
+        if self._aux2 == 0:
+            raiz = self._root
             self._aux2 += 1
 
-        if not nodo:
+        if not raiz:
             return
 
+        self._lista_pre_ordem.append(raiz._data)
+        # print(raiz._data)
+
         # Visita filho da esquerda.
-        self.pos_ordem(nodo.esquerda)
+        self.pre_ordem(raiz._left)
 
         # Visita filho da direita.
-        self.pos_ordem(nodo.direita)
+        self.pre_ordem(raiz._right)
 
+    def pos_ordem(self, raiz):
+        if self._aux3 == 0:
+            raiz = self._root
+            self._aux3 += 1
+
+        if not raiz:
+            return
+        # Visita filho da esquerda.
+        self.pos_ordem(raiz._left)
+
+        # Visita filho da direita.
+        self.pos_ordem(raiz._right)
+
+        print(raiz._data)
         # Visita nodo corrente.
-        print(nodo.chave)
+        self._lista_pos_ordem.append(raiz._data)
 
+
+    def traversal(self, in_order=True, pre_order=False, post_order=False):
+        if in_order:
+            self.em_ordem(None)
+            self._lista_pre_ordem = []
+            self._lista_pos_ordem = []
+
+        if pre_order:
+            self.pre_ordem(None)
+            self._lista_em_ordem = []
+            self._lista_pos_ordem = []
+
+        if post_order:
+            self.pos_ordem(None)
+            self._lista_em_ordem = []
+            self._lista_pre_ordem = []
+
+        print("**************Lista em ordem ****************")
+        print(self._lista_em_ordem)
+        print("**************Lista em pre-ordem ****************")
+        print(self._lista_pre_ordem)
+        print("**************Lista em pos-ordem ****************")
+        print(self._lista_pos_ordem)
+
+
+class Programa():
+
+    def menu(self):
+        print("Escolha uma das opções abaixo:")
+        print("1 - Fala ai mermão, deseja inserir na árvore binária ?")
+        print("2 - Deseja exibir a árvore binária em ordem ?")
+        print("3 - Deseja exibir a árvore binária em pré-ordem ?")
+        print("4 - Deseja exibir a árvore binária em pós-orden ?")
+        opcao_menu = input()
+        return int(opcao_menu)
 
 if __name__ == '__main__':
-    arvore_binaria_pesquisa = ArvoreBinaria(NodoArvore(40))
-    arvore_binaria_pesquisa.insere(None, NodoArvore(20))
-    arvore_binaria_pesquisa.insere(None, NodoArvore(60))
-    arvore_binaria_pesquisa.insere(None, NodoArvore(50))
-    arvore_binaria_pesquisa.insere(None, NodoArvore(70))
-    arvore_binaria_pesquisa.insere(None, NodoArvore(10))
-    arvore_binaria_pesquisa.insere(None, NodoArvore(30))
-
-    # raiz = NodoArvore(40)
+    arvore_binaria = BinaryTree(None)
+    # arvore_binaria.insert(None, Node(20))
+    # arvore_binaria.insert(None, Node(60))
+    # arvore_binaria.insert(None, Node(50))
+    # arvore_binaria.insert(None, Node(70))
+    # arvore_binaria.insert(None, Node(10))
+    # arvore_binaria.insert(None, Node(30))
     #
-    # raiz.esquerda = NodoArvore(20)
-    # raiz.direita = NodoArvore(60)
-    #
-    # raiz.direita.esquerda = NodoArvore(50)
-    # raiz.direita.direita = NodoArvore(70)
-    # raiz.esquerda.esquerda = NodoArvore(10)
-    # raiz.esquerda.direita = NodoArvore(30)
+    # arvore_binaria.traversal(True, True, True)
 
-    arvore_binaria_pesquisa.em_ordem()
-    print("======================")
-    arvore_binaria_pesquisa.pre_ordem()
-    print("======================")
-    arvore_binaria_pesquisa.pos_ordem()
+    programa = Programa()
+    valor = programa.menu()
+
+    while (True == True):
+        valor = programa.menu()
+        if valor == 1:
+            numero = input("Ok digite um valor inteiro, por favor !")
+            arvore_binaria.insert(None, Node(int(numero)))
+            print("Valor cadastrado com sucesso na árvore binária !")
+        elif valor == 2:
+            arvore_binaria.traversal(True, False, False)
+        elif valor == 3:
+            arvore_binaria.traversal(False, True, False)
+        elif valor == 4:
+            arvore_binaria.traversal(False, False, True)
+
+
