@@ -93,7 +93,7 @@ class BinaryTree(TreeADT):
         self.em_ordem(raiz._left)
 
         # Visita nodo corrente.
-        self._lista_em_ordem.append(raiz._data)
+        print(raiz._data)
         # print(raiz._data),
 
         # Visita filho da direita.
@@ -108,7 +108,7 @@ class BinaryTree(TreeADT):
             return
 
         self._lista_pre_ordem.append(raiz._data)
-        # print(raiz._data)
+        print(raiz._data)
 
         # Visita filho da esquerda.
         self.pre_ordem(raiz._left)
@@ -171,29 +171,33 @@ class Programa():
 
 if __name__ == '__main__':
     arvore_binaria = BinaryTree(None)
-    # arvore_binaria.insert(None, Node(20))
-    # arvore_binaria.insert(None, Node(60))
-    # arvore_binaria.insert(None, Node(50))
-    # arvore_binaria.insert(None, Node(70))
-    # arvore_binaria.insert(None, Node(10))
-    # arvore_binaria.insert(None, Node(30))
-    #
+    arvore_binaria.insert(None, Node(20))
+    arvore_binaria.insert(None, Node(60))
+    arvore_binaria.insert(None, Node(50))
+    arvore_binaria.insert(None, Node(70))
+    arvore_binaria.insert(None, Node(10))
+    arvore_binaria.insert(None, Node(30))
+    arvore_binaria.insert(None, Node(110))
+    arvore_binaria.insert(None, Node(55))
+    arvore_binaria.insert(None, Node(2))
+    arvore_binaria.insert(None, Node(1))
+
+    arvore_binaria.pos_ordem(None)
     # arvore_binaria.traversal(True, True, True)
 
-    programa = Programa()
-    valor = programa.menu()
 
-    while (True == True):
-        valor = programa.menu()
-        if valor == 1:
-            numero = input("Ok digite um valor inteiro, por favor !")
-            arvore_binaria.insert(None, Node(int(numero)))
-            print("Valor cadastrado com sucesso na árvore binária !")
-        elif valor == 2:
-            arvore_binaria.traversal(True, False, False)
-        elif valor == 3:
-            arvore_binaria.traversal(False, True, False)
-        elif valor == 4:
-            arvore_binaria.traversal(False, False, True)
+    #
+    # while (True == True):
+    #     valor = programa.menu()
+    #     if valor == 1:
+    #         numero = input("Ok digite um valor inteiro, por favor !")
+    #         arvore_binaria.insert(None, Node(int(numero)))
+    #         print("Valor cadastrado com sucesso na árvore binária !")
+    #     elif valor == 2:
+    #         arvore_binaria.traversal(True, False, False)
+    #     elif valor == 3:
+    #         arvore_binaria.traversal(False, True, False)
+    #     elif valor == 4:
+    #         arvore_binaria.traversal(False, False, True)
 
 
