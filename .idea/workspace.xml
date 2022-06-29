@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EstruturaDados/arvores/arvores.py" beforeDir="false" afterPath="$PROJECT_DIR$/EstruturaDados/arvores/arvores.py" afterDir="false" />
-    </list>
+    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,12 +26,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/gui/Documentos/projetos-estudo/abrindo-programas-facilmente",
+    "last_opened_file_path": "/home/gui/Documentos/projetos-estudo/estudando-phyton/EstruturaDados/sort/merge_sort.py",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="arvores" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="merge_sort" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="estudoguiphyton" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -42,12 +39,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EstruturaDados/arvores" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/EstruturaDados/sort" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EstruturaDados/arvores/arvores.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/EstruturaDados/sort/merge_sort.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -74,6 +71,7 @@
       <workItem from="1654034940445" duration="8411000" />
       <workItem from="1654367126350" duration="7334000" />
       <workItem from="1655561757539" duration="38000" />
+      <workItem from="1656379396300" duration="2898000" />
     </task>
     <servers />
   </component>
@@ -184,13 +182,38 @@
           <line>99</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/sort/merge_sort.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/sort/merge_sort.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/sort/merge_sort.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/sort/merge_sort.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/EstruturaDados/sort/merge_sort.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/estudando_phyton$bouble_sort.coverage" NAME="merge_sort Coverage Results" MODIFIED="1652750063867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/sort" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$tokenparse.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651376013138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
-    <SUITE FILE_PATH="coverage/estudando_phyton$arvores.coverage" NAME="arvores Coverage Results" MODIFIED="1654380633064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/arvores" />
+    <SUITE FILE_PATH="coverage/estudando_phyton$arvores.coverage" NAME="merge_sort Coverage Results" MODIFIED="1656381370588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/sort" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$mylistdoubledlinked.coverage" NAME="mylistdoubledlinked Coverage Results" MODIFIED="1650215269236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$fila.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651352149866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$pilhas.coverage" NAME="fila Coverage Results" MODIFIED="1650812163842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
