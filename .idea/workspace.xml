@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="" />
+    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,10 +28,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/gui/Documentos/projetos-estudo/estudando-phyton/EstruturaDados/sort/merge_sort.py",
+    "last_opened_file_path": "/home/gui/Documentos/projetos-estudo/projetoestuturadedados",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="merge_sort" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="estudoguiphyton" />
@@ -72,6 +79,8 @@
       <workItem from="1654367126350" duration="7334000" />
       <workItem from="1655561757539" duration="38000" />
       <workItem from="1656379396300" duration="2898000" />
+      <workItem from="1656464995511" duration="3498000" />
+      <workItem from="1657385339957" duration="2248000" />
     </task>
     <servers />
   </component>
