@@ -11,10 +11,31 @@ class User:
 
 class SystemParking:
     def __init__(self):
+        self._blocked = False
         self._list_spaces_automobile = []
         self._available_quantity_motorcycles = 0
         self._available_quantity_common_cars = 0
         self._available_quantity_big_cars = 0
+        self._number_mototcycles_not_sparking = 0
+        self._number_common_cars_not_sparking = 0
+        self._number_big_cars_not_sparking = 0
+
+    def return_number_mototcycles_not_sparking(self):
+        return self._number_mototcycles_not_sparking
+
+    def return_number_common_cars_not_sparking(self):
+        return self._number_common_cars_not_sparking
+
+    def return_number_big_cars_not_sparking(self):
+        return self._number_big_cars_not_sparking
+
+    def add_not_sparking(self, type):
+        if type == "M":
+            self._number_mototcycles_not_sparking += 1
+        elif type == "G":
+            self._number_big_cars_not_sparking += 1
+        else:
+            self._number_common_cars_not_sparking += 1
 
     def return_situation_now_system_parking(self):
         return f'''
@@ -35,20 +56,21 @@ class SystemParking:
         return self._list_spaces_automobile
 
     def update_available_quantity_vehicules(self, type, signal):
-        if signal == "+":
-            if type == "M":
-                self._available_quantity_motorcycles += 1
-            elif type == "C":
-                self._available_quantity_common_cars += 1
+        if self._available_quantity_motorcycles != 0:
+            if signal == "+":
+                if type == "M":
+                    self._available_quantity_motorcycles += 1
+                elif type == "C":
+                    self._available_quantity_common_cars += 1
+                else:
+                    self._available_quantity_big_cars += 1
             else:
-                self._available_quantity_big_cars += 1
-        else:
-            if type == "M":
-                self._available_quantity_motorcycles -= 1
-            elif type == "C":
-                self._available_quantity_common_cars -= 1
-            else:
-                self._available_quantity_big_cars -= 1
+                if type == "M":
+                    self._available_quantity_motorcycles -= 1
+                elif type == "C":
+                    self._available_quantity_common_cars -= 1
+                else:
+                    self._available_quantity_big_cars -= 1
 
     def __len__(self):
         return len(self._list_spaces_automobile)
@@ -72,8 +94,9 @@ class SystemParking:
                 print("Obrigado, pf estacione na vaga de número !", space._id)
                 space._free = False
                 return True, space._id
-
+        self.add_not_sparking(type)
         print("Não foi possível estacionar pois está cheio")
+        return False, 0
 
     def exit(self, index):
         for space in self._list_spaces_automobile:
@@ -86,7 +109,7 @@ class SystemParking:
         print("exit")
 
     def report(self):
-        print("report")
+        return self._number_mototcycles_not_sparking, self._number_common_cars_not_sparking, self._number_big_cars_not_sparking
 
 
 class Automobile:
@@ -112,6 +135,7 @@ class SpacesAutomobile:
 
 class TelaPython:
     def __init__(self):
+        self._blocked = False
         self._font1 = ("Roboto", 10)
         self._font2 = ("Roboto", 20)
         self._font3 = ("Roboto", 10, "bold")
@@ -122,11 +146,16 @@ class TelaPython:
 
     def init_window(self, qtdm, qtdc, qtdg):
         layout = [
-            [s.Text("Total de Vagas disponíveis", font=self._font2, background_color="#257A26")],
+            [s.Text("Total de Vagas disponíveis", font=self._font2, background_color="#257A26"),
+             s.Sizer(h_pixels=400, v_pixels=0),
+             s.Button("Ver relatório", size=(70, 3), font=self._font1, button_color=self._buttoncolor3)],
             [s.Sizer(h_pixels=0, v_pixels=100)],
-            [s.Button(str(qtdm) + " motocicletas", size=self._size, font=self._font1, button_color=self._buttoncolor), s.Button(str(qtdc)+" carros comuns", size=self._size, font=self._font1, button_color=self._buttoncolor)],
+            [s.Button(str(qtdm) + " motocicletas", size=self._size, font=self._font1, button_color=self._buttoncolor),
+             s.Button(str(qtdc) + " carros comuns", size=self._size, font=self._font1, button_color=self._buttoncolor)],
             [[s.Sizer(h_pixels=20, v_pixels=10)]],
-            [s.Sizer(h_pixels=300, v_pixels=20), s.Button(str(qtdg)+" carros grandes", size=self._size, font=self._font1, button_color=self._buttoncolor)],
+            [s.Sizer(h_pixels=300, v_pixels=20),
+             s.Button(str(qtdg) + " carros grandes", size=self._size, font=self._font1,
+                      button_color=self._buttoncolor)],
             [[s.Sizer(h_pixels=20, v_pixels=100)]],
             [s.Sizer(h_pixels=100, v_pixels=0),
              s.Button("Estacionar", size=(70, 3), font=self._font1, button_color=self._buttoncolor3),
@@ -135,9 +164,33 @@ class TelaPython:
 
         return s.Window("Dados do Usuário", background_color="#257A26", finalize=True, layout=layout)
 
+    def report_window(self, big_car, commom_car, motorcycle):
+        layout = [
+            ['', motorcycle, big_car, commom_car],
+        ]
+        heading = ['Quantidade', 'Motocicletas', 'Carros Grandes', 'Carros Comuns']
+
+        layout = [
+            [s.Text("Relatório de veículos que não conseguiram estacionar.", font=self._font2,
+                    background_color="#257A26")],
+            [s.Sizer(h_pixels=0, v_pixels=100)],
+            [s.Table(values=layout, headings=heading, max_col_width=35,
+                     auto_size_columns=True,
+                     display_row_numbers=True,
+                     justification='right',
+                     num_rows=10,
+                     key='-TABLE-',
+                     row_height=35)],
+            [s.Sizer(h_pixels=10, v_pixels=0),
+             s.Button("Voltar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
+        ]
+
+        return s.Window("Relatório", background_color="#257A26", finalize=True, layout=layout)
+
     def window_park(self):
         layout = [
-            [s.Text("Qual seu tipo de veículo ? Toque no tipo por favor ! ", font=self._font2, background_color="#257A26")],
+            [s.Text("Qual seu tipo de veículo ? Toque no tipo por favor ! ", font=self._font2,
+                    background_color="#257A26")],
             [s.Sizer(h_pixels=0, v_pixels=100)],
             [s.Button("MOTOCICLETA", size=self._size, font=self._font1, button_color=self._buttoncolor),
              s.Button("CARRO COMUM", size=self._size, font=self._font1, button_color=self._buttoncolor)],
@@ -146,7 +199,8 @@ class TelaPython:
              s.Button("CARRO GRANDE", size=self._size, font=self._font1, button_color=self._buttoncolor)],
             [[s.Sizer(h_pixels=20, v_pixels=100)]],
             [s.Sizer(h_pixels=100, v_pixels=0)],
-            [[s.Sizer(h_pixels=300, v_pixels=0), s.Button("Voltar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]]
+            [[s.Sizer(h_pixels=300, v_pixels=0),
+              s.Button("Voltar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]]
         ]
 
         return s.Window("Escolhendo veículo", background_color="#257A26", finalize=True, layout=layout)
@@ -155,19 +209,24 @@ class TelaPython:
         layout = [
             [s.Text("Obrigado, em baixo está o número de sua vaga !", font=self._font2, background_color="#257A26")],
             [s.Sizer(h_pixels=0, v_pixels=50)],
-            [s.Sizer(h_pixels=10, v_pixels=0), s.Button("Vaga de número " + str(numero), size=self._size, font=self._font1, button_color=self._buttoncolor)],
+            [s.Sizer(h_pixels=10, v_pixels=0),
+             s.Button("Vaga de número " + str(numero), size=self._size, font=self._font1,
+                      button_color=self._buttoncolor)],
             [s.Sizer(h_pixels=0, v_pixels=50)],
-            [s.Sizer(h_pixels=0), s.Sizer(h_pixels=10, v_pixels=50), s.Button("Sair", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
+            [s.Sizer(h_pixels=0), s.Sizer(h_pixels=10, v_pixels=50),
+             s.Button("Sair", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
         ]
 
         return s.Window("Deu certo", background_color="#257A26", finalize=True, layout=layout)
 
     def window_exit(self):
         layout = [
-            [s.Text("Digite o número da sua vaga para podermos liberar a cancela !", font=self._font2, background_color="#257A26")],
-            [s.Input(size = self._size_input, key = 'id')],
+            [s.Text("Digite o número da sua vaga para podermos liberar a cancela !", font=self._font2,
+                    background_color="#257A26")],
+            [s.Input(size=self._size_input, key='id')],
             [s.Sizer(h_pixels=0, v_pixels=50)],
-            [s.Sizer(h_pixels=0), s.Sizer(h_pixels=10, v_pixels=50), s.Button("Confirmar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
+            [s.Sizer(h_pixels=0), s.Sizer(h_pixels=10, v_pixels=50),
+             s.Button("Confirmar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
         ]
 
         return s.Window("Sair", background_color="#257A26", finalize=True, layout=layout)
@@ -177,7 +236,7 @@ class TelaPython:
         qtdc = system.return_quantity_spaces_common_cars()
         qtdg = system.return_quantity_spaces_big_cars()
 
-        janela1, janela2, janela3, janela4 = self.init_window(qtdm, qtdc, qtdg), None, None, None
+        janela1, janela2, janela3, janela4, janela5 = self.init_window(qtdm, qtdc, qtdg), None, None, None, None
 
         while True:
             window, event, values = s.read_all_windows()
@@ -192,40 +251,68 @@ class TelaPython:
             if window == janela2 and event == 'Voltar':
                 janela2.hide()
                 janela1.un_hide()
-            if window == janela2 and event == 'MOTOCICLETA':
+            if window == janela2 and event == 'MOTOCICLETA' and self._blocked == False:
+                self._blocked = True
                 result, id = system.park("M")
                 if result:
+                    self._blocked = False
                     janela2.hide()
                     janela3 = self.window_check(id)
                 else:
+                    self._blocked = False
                     s.popup('Vagas para motocicletas estão lotadas !')
-
-            if window == janela2 and event == 'CARRO COMUM':
+            if window == janela2 and event == 'CARRO COMUM' and self._blocked == False:
+                self._blocked = True
                 result, id = system.park("C")
                 if result:
+                    self._blocked = False
                     janela2.hide()
                     janela3 = self.window_check(id)
                 else:
+                    self._blocked = False
                     s.popup('Vagas para carro comum estão lotadas !')
-            if window == janela2 and event == 'CARRO GRANDE':
+            if window == janela2 and event == 'CARRO GRANDE' and self._blocked == False:
+                self._blocked = True
                 result, id = system.park("G")
                 if result:
+                    self._blocked = False
                     janela2.hide()
                     janela3 = self.window_check(id)
                 else:
-                    s.popup('Vagas para carro comum estão lotadas !')
+                    self._blocked = False
+                    s.popup('Vagas para carro grande estão lotadas !')
             if window == janela3 and event == 'Sair':
                 qtdm = system.return_quantity_spaces_available_motorcycles()
                 qtdc = system.return_quantity_spaces_common_cars()
                 qtdg = system.return_quantity_spaces_big_cars()
                 janela3.hide()
                 janela1 = self.init_window(qtdm, qtdc, qtdg)
+            if window == janela4 and event == 'Confirmar':
+                numerovaga = int(values["id"])
+                system.exit(numerovaga)
+                qtdm = system.return_quantity_spaces_available_motorcycles()
+                qtdc = system.return_quantity_spaces_common_cars()
+                qtdg = system.return_quantity_spaces_big_cars()
+                janela4.hide()
+                janela1 = self.init_window(qtdm, qtdc, qtdg)
+            if window == janela1 and event == 'Ver relatório':
+                janela1.hide()
+                janela5 = self.report_window(system.return_number_big_cars_not_sparking(),
+                                             system.return_number_common_cars_not_sparking(),
+                                             system.return_number_mototcycles_not_sparking())
+            if window == janela5 and event == 'Voltar':
+                janela5.hide()
+                qtdm = system.return_quantity_spaces_available_motorcycles()
+                qtdc = system.return_quantity_spaces_common_cars()
+                qtdg = system.return_quantity_spaces_big_cars()
+                janela1 = self.init_window(qtdm, qtdc, qtdg)
+
 
 # criando objeto do sistema de estacionamento
 system = SystemParking()
 
 ##criando os espacos com os tipos das vagas
-for index in range(1, 101):
+for index in range(1, 2):
     if index > 0 and index < 26:
         spaces_automobiles = SpacesAutomobile(index, True, "M")
     elif index > 25 and index < 51:
@@ -235,9 +322,6 @@ for index in range(1, 101):
     # adicionando a vaga ao sistema de estacionamento
     system.insert_list_spaces_automobile(spaces_automobiles)
 
-#iniciando
+# iniciando
 tela = TelaPython()
 tela.iniciar(system)
-
-
-
