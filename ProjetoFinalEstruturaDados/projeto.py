@@ -130,8 +130,8 @@ class TelaPython:
         self._blocked = False
         self._text_window_1 = "Total de Vagas disponíveis"
         self._text_window_2 = "Qual seu tipo de veículo ? Toque no tipo, por favor !"
-        self._font1 = ("Roboto", 10)
-        self._font2 = ("Roboto", 20)
+        self._font1 = ("Roboto", 10, "bold")
+        self._font2 = ("Roboto", 20, "bold")
         self._font3 = ("Roboto", 10, "bold")
         self._buttoncolor = "#EB564F"
         self._buttoncolor4 = "#AB61E8"
@@ -149,14 +149,14 @@ class TelaPython:
              s.Sizer(h_pixels=120, v_pixels=0),
              s.Button("Ver relatório", size=self._size_small, font=self._font1, button_color=self._buttoncolor3)],
             [s.Sizer(h_pixels=0, v_pixels=100)],
-            [s.Sizer(h_pixels=38, v_pixels=20), s.Button(str(qtdm) + " motocicletas", size=self._size, font=self._font1, button_color=self._buttoncolor),
+            [s.Sizer(h_pixels=0, v_pixels=20), s.Button(str(qtdm) + " motocicletas", size=self._size, font=self._font1, button_color=self._buttoncolor),
              s.Button(str(qtdc) + " carros comuns", size=self._size, font=self._font1, button_color=self._buttoncolor)],
             [[s.Sizer(h_pixels=20, v_pixels=10)]],
-            [s.Sizer(h_pixels=250, v_pixels=20),
+            [s.Sizer(h_pixels=220, v_pixels=20),
              s.Button(str(qtdg) + " carros grandes", size=self._size, font=self._font1,
                       button_color=self._buttoncolor)],
             [[s.Sizer(h_pixels=20, v_pixels=100)]],
-            [s.Sizer(h_pixels=40, v_pixels=0),
+            [s.Sizer(h_pixels=0, v_pixels=0),
              s.Button("Estacionar", size=self._size, font=self._font1, button_color=self._buttoncolor3),
              s.Button("Tirar veículo", size=self._size, font=self._font1, button_color=self._buttoncolor4)],
         ]
@@ -170,7 +170,7 @@ class TelaPython:
         heading = ['Quantidade', 'Motocicletas', 'Carros Grandes', 'Carros Comuns']
 
         layout = [
-            [s.Sizer(h_pixels=25, v_pixels=30), s.Text("Relatório de veículos que não conseguiram estacionar.", font=self._font2,
+            [s.Sizer(h_pixels=35, v_pixels=30), s.Text("Relatório dos que não conseguiram estacionar.", font=self._font2,
                     background_color=self._colorview)],
             [s.Sizer(h_pixels = 200, v_pixels=50)],
             [s.Sizer(h_pixels = 90, v_pixels=50), s.Table(values=layout, headings=heading, max_col_width=35,
@@ -180,7 +180,7 @@ class TelaPython:
                      num_rows=10,
                      key='-TABLE-',
                      row_height=35)],
-            [s.Sizer(h_pixels=230, v_pixels=100),
+            [s.Sizer(h_pixels=220, v_pixels=100),
              s.Button("Voltar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
         ]
 
@@ -188,17 +188,17 @@ class TelaPython:
 
     def window_park(self):
         layout = [
-            [s.Sizer(h_pixels=30, v_pixels=50), s.Text(self._text_window_2, font=self._font2,
+            [s.Sizer(h_pixels=0, v_pixels=50), s.Text(self._text_window_2, font=self._font2,
                     background_color=self._colorview)],
             [s.Sizer(h_pixels=0, v_pixels=100)],
-            [s.Sizer(h_pixels=35, v_pixels=0), s.Button("MOTOCICLETA", size=self._size, font=self._font1, button_color=self._buttoncolor),
+            [s.Sizer(h_pixels=0, v_pixels=0), s.Button("MOTOCICLETA", size=self._size, font=self._font1, button_color=self._buttoncolor),
              s.Button("CARRO COMUM", size=self._size, font=self._font1, button_color=self._buttoncolor)],
             [[s.Sizer(h_pixels=20, v_pixels=10)]],
-            [s.Sizer(h_pixels=240, v_pixels=20),
+            [s.Sizer(h_pixels=220, v_pixels=20),
              s.Button("CARRO GRANDE", size=self._size, font=self._font1, button_color=self._buttoncolor)],
             [[s.Sizer(h_pixels=20, v_pixels=100)]],
             [s.Sizer(h_pixels=100, v_pixels=0)],
-            [[s.Sizer(h_pixels=240, v_pixels=0),
+            [[s.Sizer(h_pixels=220, v_pixels=0),
               s.Button("Voltar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]]
         ]
 
@@ -206,13 +206,13 @@ class TelaPython:
 
     def window_check(self, numero):
         layout = [
-            [s.Sizer(h_pixels=85, v_pixels=50), s.Text("Obrigado, em baixo está o número de sua vaga !", font=self._font2, background_color=self._colorview)],
+            [s.Sizer(h_pixels=20, v_pixels=50), s.Text("Obrigado, em baixo está o número de sua vaga !", font=self._font2, background_color=self._colorview)],
             [s.Sizer(h_pixels=0, v_pixels=50)],
-            [s.Sizer(h_pixels=230, v_pixels=300),
+            [s.Sizer(h_pixels=220, v_pixels=300),
              s.Button("Vaga de número " + str(numero), size=self._size, font=self._font1,
                       button_color=self._buttoncolor)],
             [s.Sizer(h_pixels=0, v_pixels=50)],
-            [s.Sizer(h_pixels=230, v_pixels=700),
+            [s.Sizer(h_pixels=220, v_pixels=700),
              s.Button("Sair", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
         ]
 
@@ -220,11 +220,11 @@ class TelaPython:
 
     def window_exit(self):
         layout = [
-            [s.Text("Vai sair? Qual o número da vaga ?", font=self._font2,
+            [s.Sizer(h_pixels=145, v_pixels=100), s.Text("Vai sair? Qual o número da vaga ?", font=self._font2,
                     background_color=self._colorview)],
-            [s.Input(size=(300,1000), key='id')],
+            [s.Sizer(h_pixels=220, v_pixels=300),s.Multiline(size=(50,5), key='id')],
             [s.Sizer(h_pixels=0, v_pixels=50)],
-            [s.Sizer(h_pixels=230, v_pixels=800),
+            [s.Sizer(h_pixels=200, v_pixels=800),
              s.Button("Confirmar", size=self._size, font=self._font1, button_color=self._buttoncolor3)]
         ]
 
@@ -296,13 +296,17 @@ class TelaPython:
                 janela1 = self.init_window(qtdm, qtdc, qtdg)
             # events window 4
             if window == janela4 and event == 'Confirmar':
-                numerovaga = int(values["id"])
-                system.exit(numerovaga)
-                qtdm = system.return_quantity_spaces_available_motorcycles()
-                qtdc = system.return_quantity_spaces_common_cars()
-                qtdg = system.return_quantity_spaces_big_cars()
-                janela4.hide()
-                janela1 = self.init_window(qtdm, qtdc, qtdg)
+                if not values["id"] == "":
+                    numerovaga = int(values["id"])
+                    system.exit(numerovaga)
+                    qtdm = system.return_quantity_spaces_available_motorcycles()
+                    qtdc = system.return_quantity_spaces_common_cars()
+                    qtdg = system.return_quantity_spaces_big_cars()
+                    janela4.hide()
+                    janela1 = self.init_window(qtdm, qtdc, qtdg)
+                else:
+                    janela4.hide()
+                    janela1 = self.init_window(qtdm, qtdc, qtdg)
             # events window 5
             if window == janela5 and event == 'Voltar':
                 janela5.hide()
