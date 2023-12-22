@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="" />
+    <list default="true" id="22b061b8-a028-4a06-bcc3-0abc7fd243c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,12 +27,16 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gui/Documentos/projetos-estudo/estudando-phyton&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gui/Documentos/estudo/estudando-phyton&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -82,6 +88,9 @@
       <workItem from="1657423561009" duration="69000" />
       <workItem from="1657588115179" duration="245000" />
       <workItem from="1657678646292" duration="70000" />
+      <workItem from="1680198518107" duration="746000" />
+      <workItem from="1690572974927" duration="1139000" />
+      <workItem from="1690672318570" duration="1750000" />
     </task>
     <servers />
   </component>
@@ -221,11 +230,11 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/estudando_phyton$bouble_sort.coverage" NAME="merge_sort Coverage Results" MODIFIED="1652750063867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/sort" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$tokenparse.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651376013138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
-    <SUITE FILE_PATH="coverage/estudando_phyton$arvores.coverage" NAME="merge_sort Coverage Results" MODIFIED="1656381370588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/sort" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$mylistdoubledlinked.coverage" NAME="mylistdoubledlinked Coverage Results" MODIFIED="1650215269236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
-    <SUITE FILE_PATH="coverage/estudoguiphyton$fila.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651352149866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
+    <SUITE FILE_PATH="coverage/estudando_phyton$arvores.coverage" NAME="merge_sort Coverage Results" MODIFIED="1656381370588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/sort" />
     <SUITE FILE_PATH="coverage/estudoguiphyton$pilhas.coverage" NAME="fila Coverage Results" MODIFIED="1650812163842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados" />
+    <SUITE FILE_PATH="coverage/estudoguiphyton$fila.coverage" NAME="tokenparse Coverage Results" MODIFIED="1651352149866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/exercicios" />
+    <SUITE FILE_PATH="coverage/estudando_phyton$bouble_sort.coverage" NAME="merge_sort Coverage Results" MODIFIED="1652750063867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/EstruturaDados/sort" />
   </component>
 </project>
